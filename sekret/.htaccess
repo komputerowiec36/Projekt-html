@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Witamy!!!"
-AuthUserFile /home/student/public_html/.htpasswd
-Require valid-user
