@@ -1,0 +1,14 @@
+fieldset
+{
+max-width:840px; 
+max-height:600px;
+border:6px #00cc66 solid;
+background-color:#FFFF33;
+}
+#a
+{
+font-size:45px;
+}
+p.tytuł{font-size:45px;}
+
+

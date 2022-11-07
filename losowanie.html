@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="losowanie.css" rel="stylesheet">
+    </head>
+    <body bgcolor="#3399FF">
+	<body>	 
+		 <p class="tytuł">
+			 Wielkie Losowanie
+		 </p>
+		 <fieldset>   
+<?php
+$data=date("d-m-Y");
+$sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
+$res2 = mysqli_query($sq,"SELECT id FROM losowanie;");
+if (!$res2) {
+echo "Jest problem z bazą danych";
+}
+if(mysqli_num_rows($res2) < 5) {
+$liczba=mysqli_num_rows($res2);
+$liczba2=5-$liczba;
+echo"Narazie jest:\r\n"; echo$liczba; echo"\r\nuczestnik/uczestników<br>";
+echo"brakuje:\r\n"; echo$liczba2;echo"<br>" ;
+echo"Losowanie odbędzie się w ustalonym terminie gdy uczestników będzie więcej niż 5 !!! ";
+}
+if(mysqli_num_rows($res2) > 4) { 
+$liczba=mysqli_num_rows($res2);
+if(date("dmY") != "17122017")
+{
+echo"Narazie jest:\r\n"; echo$liczba; echo"\r\nuczestnik/uczestników<br>";
+echo"Pamiętajcie że losowanie odbędzie sie 08-01-2018";
+}
+if(date("dmY") == "18122017")
+{
+$plik1 = "losowanie/liczba1.txt";
+$plik2 = "losowanie/liczba2.txt";
+$plik3 = "losowanie/liczba3.txt";
+if(!file_exists($plik1) && !file_exists($plik2) && !file_exists($plik3))
+{
+e:
+$r1=rand(1,$liczba);
+$r2=rand(1,$liczba);
+if($r2 == $r1) goto e;
+$r3=rand(1,$liczba);
+if($r3 == $r1 || $r3 == $r2)goto e;
+}
+echo "Wyniki:<br>";
+echo "<br>";
+echo"1. miejsce:\r\n"; echo $r1; echo"<br>";
+echo "<br>";
+echo"2. miejsce:\r\n"; echo $r2; echo"<br>";
+echo "<br>";
+echo"3. miejsce:\r\n"; echo $r3; echo"<br>";
+echo "<br>";
+echo "Wszystkim zwycięzcom gratulujemy:)!!!";
+}
+}
+?>
+</fieldset>
+
+<BR>
+      <form action="logowanie.html" method="POST">
+       <input type="submit" value="wyloguj">
+       </form>
+</BR>    
+   </body>
+</html>
