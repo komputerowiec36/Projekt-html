@@ -1,25 +1,22 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<form action="strona1.html" method = "POST">
+<body>
+<form action="strona2.php" method = "POST">
 <input type = "Submit" name="submit" Value = "Wyloguj" />
-<body bgcolor="lightblue">	
 </form>
 <?php
-$dane1 = mysql_escape_string($_REQUEST['login']);
-$dane = mysql_escape_string($_REQUEST['haslo']);
-$con = mysql_connect('127.0.0.1:3306', "{$dane1}", "{$dane}" );
+$con = mysqli_connect('localhost', "root", "serwer12345*", "tabele" );
 if (!$con) {
  die('błąd połączenia z bazą danych...');
 }
-mysql_select_db('pz79318');
 $a = $_POST['kolumna'];
-$b = mysql_real_escape_string($_REQUEST['nazwa']);
+$b = $_REQUEST['nazwa'];
 $zapytanie = "SELECT * FROM Formularz WHERE {$a} ='{$b}';";
-$wskaznik=mysql_query($zapytanie, $con);
+$wskaznik=mysqli_query($con, $zapytanie);
 if (!$wskaznik){
 $zapytanie = "SELECT * FROM Formularz;";
-$wskaznik=mysql_query($zapytanie, $con);
+$wskaznik=mysqli_query($con, $zapytanie);
 }
-if(mysql_num_rows($wskaznik) > 0) { 
+if(mysqli_num_rows($wskaznik) > 0) { 
     echo "<table cellpadding=\"2\" border=1>"; 
       echo "<tr>";
         echo "<td>Id</td>";  
@@ -30,24 +27,27 @@ if(mysql_num_rows($wskaznik) > 0) {
         echo "<td>Stan</td>";
         echo "<td>Miasto</td>";  
         echo "</tr>";
-    while($r = mysql_fetch_assoc($wskaznik)) { 
-		echo "<td>".$r['Id']."</td>"; 
-        echo "<td>".$r['Imie']."</td>"; 
-        echo "<td>".$r['Nazwisko']."</td>"; 
-        echo "<td>".$r['Pseudonim']."</td>"; 
-        echo "<td>".$r['Wiek']."</td>";
-        echo "<td>".$r['Stan']."</td>";
-        echo "<td>".$r['Miasto']."</td>";   
-        echo "<td> 
-       <a href=\"strona4.php?a=del&amp;Id={$r['Id']}\">Usuń</a> 
-       </td>";
-        echo "<td>
-       <a href=\"strona5.php?a=edit&amp;Id={$r['Id']}\">Edytuj</a> 
-       </td>"; 
-        echo "</tr>"; 
+    while($r = mysqli_fetch_assoc($wskaznik)) { 
+		echo "<td>".$r['id']."</td>"; 
+        echo "<td>".$r['imie']."</td>"; 
+        echo "<td>".$r['nazwisko']."</td>"; 
+        echo "<td>".$r['pseudonim']."</td>"; 
+        echo "<td>".$r['wiek']."</td>";
+        echo "<td>".$r['stan']."</td>";
+        echo "<td>".$r['miasto']."</td>";   
+        echo "</tr>";
     } 
-    echo "</table>"; 
-} 
+    echo "</table>"; 	
+}
 ?>
+<form action="strona5.php" method = "POST">
+<input type="hidden" name="a" value="<?php echo $a; ?>" /> 
+<input type="hidden" name="b" value="<?php echo $b; ?>" /> 
+<input type = "Submit" name="submit" Value = "Edytuj" />
+</form>
+<form action="strona4.php" method = "POST">
+<input type="hidden" name="a" value="<?php echo $a; ?>" /> 
+<input type="hidden" name="b" value="<?php echo $b; ?>" /> 
+<input type = "Submit" name="submit" Value = "Usuń" />
+</form>
 </body>
-

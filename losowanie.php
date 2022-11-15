@@ -26,12 +26,12 @@ echo"Losowanie nagród odbędzie się w ustalonym terminie gdy uczestników będ
 }
 if(mysqli_num_rows($res) > 4) { 
 $liczba=mysqli_num_rows($res);
-if(date("dmY") < "20122017")
+if(date("dmY") > "20122017")
 {
 echo"Narazie jest:\r\n"; echo$liczba; echo"\r\nuczestnik/uczestników<br>";
 echo"Pamiętajcie że losowanie nagród odbędzie sie 08-01-2018";
 }
-if(date("dmY") > "19122017")
+if(date("dmY") < "19122017")
 {
 $data="20122017";
 $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
@@ -91,7 +91,9 @@ echo "Wszystkim zwycięzcom gratulujemy:)!!!";
 </p>
 </fieldset>
 <BR>
-      
+   <form action="spis.html" method="POST">
+     <input type="submit" value="Wróć">
+     </form>    
 </BR>    
    </body>
 </html>

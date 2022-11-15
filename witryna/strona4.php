@@ -4,16 +4,15 @@
 <input type = "Submit" name="submit" Value = "Wyloguj" />
 </form>
 <?php
-$con = mysql_connect('127.0.0.1:3306', "pz79318", "Weefoh6ie7" );
+$con = mysqli_connect('localhost', "root", "serwer12345*", "tabele" );
 if (!$con) {
  die('błąd połączenia z bazą danych...');
 }
-mysql_select_db('pz79318');
-$a = trim($_GET['a']); 
-$id = trim($_GET['Id']); 
-if($a == 'del') { 
- mysql_query("DELETE FROM Formularz WHERE Id ='$id'")
-  or die('Błąd zapytania: '.mysql_error()); 
+$a = $_POST['a'];
+$b = $_POST['b'];
+if(!empty($a)) { 
+ mysqli_query($con, "DELETE FROM Formularz WHERE {$a} ='{$b}';")
+  or die('Błąd zapytania: '.mysqli_error()); 
      echo 'Wpis został usunęty z bazy'; 
 }
 ?>

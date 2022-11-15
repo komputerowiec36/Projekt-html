@@ -4,46 +4,45 @@
 <input type = "Submit" name="submit" Value = "Wyloguj" />
 </form>
 <?php 
-$con = mysql_connect('127.0.0.1:3306', "pz79318", "Weefoh6ie7" );
+$con = mysqli_connect('localhost', "root", "serwer12345*", "tabele" );
 if (!$con) {
  die('błąd połączenia z bazą danych...');
 }
-mysql_select_db('pz79318');
-$a = trim($_REQUEST['a']); 
-$id = trim($_GET['Id']); 
+$a = $_POST['a'];
+$b = $_POST['b'];
 
-if($a == 'edit' and !empty($id)) { 
+if(!empty($a)) { 
     
-    $wynik = mysql_query("SELECT * FROM Formularz WHERE 
-    Id='$id'") 
+    $wynik = mysqli_query($con,"SELECT * FROM Formularz WHERE 
+    {$a} ='{$b}';") 
     or die('Błąd zapytania'); 
     
-    if(mysql_num_rows($wynik) > 0) { 
+    if(mysqli_num_rows($wynik) > 0) { 
          
-        $r = mysql_fetch_assoc($wynik); 
+        $r = mysqli_fetch_assoc($wynik); 
         
         
         echo '<form action="strona6.php" method="post"> 
         <input type="hidden" name="a" value="save" /> 
-        <input type="hidden" name="id" value="'.$id.'" /> 
+        <input type="hidden" name="id" value="'.$r['id'].'" /> 
         imię:<br /> 
         <input type="text" name="imie" 
-        value="'.$r['Imie'].'" /><br />
+        value="'.$r['imie'].'" /><br />
         nazwisko:<br /> 
         <input type="text" name="nazwisko" 
-        value="'.$r['Nazwisko'].'" /><br />
+        value="'.$r['nazwisko'].'" /><br />
         pseudonim:<br /> 
         <input type="text" name="pseudonim" 
-        value="'.$r['Pseudonim'].'" /><br />
+        value="'.$r['pseudonim'].'" /><br />
         wiek:<br /> 
         <input type=number name="wiek" class="form-control" min="1"
-        value="'.$r['Wiek'].'" /><br />
+        value="'.$r['wiek'].'" /><br />
         stan:<br /> 
         <input type="text" name="stan" 
-        value="'.$r['Stan'].'" /><br />
+        value="'.$r['stan'].'" /><br />
         miasto:<br /> 
         <input type="text" name="miasto" 
-        value="'.$r['Miasto'].'" /><br />
+        value="'.$r['miasto'].'" /><br />
         <br /> 
         <input type="submit" value="popraw" /> 
         </form>'; 

@@ -4,11 +4,10 @@
 <input type = "Submit" name="submit" Value = "Wyloguj" />
 </form>
 <?php
-$con = mysql_connect('127.0.0.1:3306', "pz79318", "Weefoh6ie7" );
+$con = mysqli_connect('localhost', "root", "serwer12345*", "tabele" );
 if (!$con) {
  die('błąd połączenia z bazą danych...');
 }
-mysql_select_db('pz79318');
     $id = $_POST['id']; 
     $imie = trim($_POST['imie']); 
     $nazwisko = trim($_POST['nazwisko']); 
@@ -18,7 +17,7 @@ mysql_select_db('pz79318');
     $miasto = trim($_POST['miasto']);
    
     
-    mysql_query("UPDATE Formularz SET Imie='$imie', 
+    mysqli_query($con, "UPDATE Formularz SET Imie='$imie', 
     Nazwisko='$nazwisko', Pseudonim='$pseudonim', Wiek='$wiek', Stan='$stan', Miasto='$miasto'   WHERE id='$id'") 
     or die('Błąd zapytania'); 
     echo 'Wpis został zaktualizowany'; 

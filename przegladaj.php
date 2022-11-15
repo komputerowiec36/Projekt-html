@@ -17,12 +17,12 @@
  $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
  $res = mysqli_query($sq,"SELECT * FROM klienci WHERE login='$login';");
 if (!$res) {
- header("Location:bbazydanych.php");
+ header("Location:logowanie/bbazydanych.php");
 }
 
 if(mysqli_num_rows($res) < 1) { 
 
-header("Location:blogin.php");
+header("Location:logowanie/blogin.php");
  }
  
 if(mysqli_num_rows($res) > 0) { 
@@ -37,7 +37,7 @@ if(mysqli_num_rows($res2) > 0) {
  $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
  $res3 = mysqli_query($sq,"SELECT * FROM losowanie WHERE login='$login';");
 if (!$res3) {
-header("Location:bazydanych.php");
+header("Location:logowanie/bbazydanych.php");
 }
 
 if(mysqli_num_rows($res3) > 0) 
