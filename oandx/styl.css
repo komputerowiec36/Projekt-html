@@ -1,0 +1,181 @@
+body
+{
+    height: 100%;
+    background-color: SlateBlue;
+}
+
+#container
+{
+    width: 950px;
+    height: 450px;
+    background-color: inherit;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#duza
+{
+    width: 450px;
+    height: 450px;
+    background-color: inherit;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 250px;
+    float: left;
+}
+
+#p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 150px;
+    height: 150px;
+    background-image: url('ramka.png');
+    float: left;
+    
+}
+
+#pp1, #pp2, #pp3, #pp4, #pp5, #pp6, #pp7, #pp8, #pp9, #pp11, #pp22, #pp33, #pp44, #pp55, #pp66, #pp77, #pp88, #pp99
+{
+    display: none;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 150px;
+    height: 150px;
+}
+
+#p1:hover, #p2:hover, #p3:hover, #p4:hover, #p5:hover, #p6:hover, #p7:hover, #p8:hover, #p9:hover
+{
+    background-image: url('cien.png');
+}
+
+#stopka a:link, #stopka a:visited, #stopka a:active, #stopka a:hover
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#opis
+{
+    width: 250px;
+    height: 450px;
+    border: 0px solid #fff;
+    padding: 0px;
+    margin: 0px;
+    float: right;
+    text-align: left;
+    font-size: smaller;
+}
+
+#stopka
+{
+    width: 250px;
+    height: 50px;
+    color: rgba(0,0,255,0.4);
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    background-image: url('tlo3.png');
+}
+
+#wsp1
+{
+    border: 0px;
+    width: 250px;
+    height: 110px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url('tlo1.png');
+}
+#login
+{
+    border: 0px;
+    width: 235px;
+    height: 100px;
+    margin-top: 150px;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    resize: none;
+    outline: none;
+}
+#login1
+{
+    border: 0px;
+    width: 235px;
+    height: 100px;
+    margin-top: 150px;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    resize: none;
+    outline: none;
+}
+#login2
+{
+    border: 0px;
+    width: 235px;
+    height: 100px;
+    margin-top: 150px;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    resize: none;
+    outline: none;
+}
+#b1{
+ display: none;
+}
+#b2{
+ display: none;
+}
+#b3{
+ display: none;
+}
+#napis
+{
+    border: 0px;
+    width: 235px;
+    height: 100px;
+    margin-top: 150px;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    resize: none;
+    outline: none;
+}
+
+#wsp2
+{
+    border: 0px;
+    width: 234px;
+    height: 290px;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 8px;
+    padding-left: 8px;
+    background-image: url('tlo2.png');
+}
+
+hr
+{
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+h1
+{
+    text-decoration: blink;
+}

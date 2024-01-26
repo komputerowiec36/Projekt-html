@@ -1,0 +1,1 @@
+echo "<td style='width: 100px; height: 100px'> <P><img alt='' src=".$r['stan']." width='100%'></P></td>";

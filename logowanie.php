@@ -53,9 +53,12 @@ $id = $id + 1;
 $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
 $res4 = mysqli_query($sq,"SELECT * FROM losowanie WHERE id='$id';");
 }
-if(mysqli_num_rows($res4) < 1) { 
-$res5 = mysqli_query($sq,"Insert into losowanie SET id='$id', login='$login', kod='$kod';");
-if(!$res5) {
+if(mysqli_num_rows($res4) < 1) {
+$sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
+$res5 = mysqli_query($sq,"SELECT * FROM losowanie WHERE login='$login';");
+if(mysqli_num_rows($res5) > 0) {
+  $res6 = mysqli_query($sq,"Insert into losowanie SET id='$id', login='$login', kod='$kod';");
+if(!$res6) {
 header("Location:bazydanych.php");
 
 }
@@ -94,8 +97,6 @@ if(mysqli_num_rows($res2) > 0) {
 	
  $witaj= "Witaj\r\n";
 echo $witaj; echo$login;
-
- 
 }
 
 }

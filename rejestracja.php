@@ -48,7 +48,7 @@ $res3 = mysqli_query($sq,"SELECT * FROM klienci WHERE id='$id';");
 if(mysqli_num_rows($res3) < 1) {  
 
  $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
- $res2 = mysqli_query($sq,"Insert into klienci SET id='$id', login='$login', haslo='$hasło', bohater='$bohater';");
+ $res2 = mysqli_query($sq,"Insert into klienci SET login='$login', haslo='$hasło', bohater='$bohater';");
 if(!$res2) {
  echo $id;
  echo "Jest problem z bazą danych";

@@ -64,7 +64,7 @@ if(mysqli_num_rows($res5) > 0)
 $row2=mysqli_fetch_array($res5);
 $login3=$row2["login"];
 $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
-$res6 = mysqli_query($sq,"Insert into wyniki SET id='$r1', login='$login', id2='$r2', login2='$login2',id3='$r3', login3='$login3', data='$data';");
+$res6 = mysqli_query($sq,"Insert into wyniki SET id='$r1, login='$login', id2='$r2', login2='$login2',id3='$r3', login3='$login3', data='$data';");
 }
 }
 }

@@ -1,0 +1,34 @@
+
+.Warstwa5 {
+  position: absolute;
+  left:3.7cm;
+  top: 1.2cm;
+  width: 3.02cm;
+  height: 2.139cm;
+  z-index: 3;
+}
+#a{
+  font-size: 0.558cm;
+  font-family: "Minion Pro";
+  font-weight: bold;
+  position: absolute;
+  left:2cm;
+  width: 8.069cm;
+  height: 1.023cm;
+  z-index: 273;
+}
+#b{
+  font-size: 0.558cm;
+  font-family: "Minion Pro";
+  position: absolute;
+  text-align:center;
+  top: 4.2cm;
+  left:1cm;
+  width: 8.103cm;
+  height: 0.776cm;
+  z-index: 273;
+}
+#data{
+  position: absolute;
+  left: 5.7cm;
+}
