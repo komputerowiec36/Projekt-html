@@ -4,9 +4,10 @@
     var x = 1;
     var blad = 0;
     //document.getElementById('napis').value = [];
+
     function graj(pole, pl)
     {
-        if (gra != 'skończona')
+        if (gra != 'skonczona')
         {
             if (pl == 'pl1')
             {
@@ -36,26 +37,33 @@
                     (tab[2] == 'pl1' && tab[5] == 'pl1' && tab[8] == 'pl1') ||
                     (tab[3] == 'pl1' && tab[6] == 'pl1' && tab[9] == 'pl1'))
                 {
+                    alert('WYGRAŁEŚ!!!');
 					document.getElementById("login").removeAttribute("hidden");
-					document.getElementById('subm').disabled=true;
-					document.getElementById('b1').style.display='block';
-                    alert('Wygrałeś!!!');
                     document.getElementById('napis').value = '';
                     gra = 'skonczona';
+                    document.getElementById('zagraj').style.display = 'block';
+					document.getElementById('rezultat').value = "wygrana";
+					document.getElementById('wynik').style.display = 'block';
                 }
                 else if (tab[1] != null && tab[2] != null && tab[3] != null &&
                          tab[4] != null && tab[5] != null && tab[6] != null &&
                          tab[7] != null && tab[8] != null && tab[9] != null)
                 {
-					document.getElementById("login1").removeAttribute("hidden");
-					document.getElementById('b2').style.display='block';
                     alert ('REMIS');
-                    gra = 'skończona';
+					document.getElementById("login1").removeAttribute("hidden");
+                    gra = 'skonczona';
                     document.getElementById('napis').value = '';
+                    document.getElementById('zagraj').style.display = 'block';
+					document.getElementById('rezultat').value = "Remis";
+					document.getElementById('wynik').style.display = 'block';
                 }
                 else
                 {
-                    if (tab[1] == null && (
+                    if (tab[5] == null)
+                    {
+                        g = 5;
+                    }
+                    else if (tab[1] == null && (
                                             (tab[2] == 'cpu' && tab[3] == 'cpu') ||
                                             (tab[4] == 'cpu' && tab[7] == 'cpu') ||
                                             (tab[5] == 'cpu' && tab[9] == 'cpu')
@@ -257,21 +265,24 @@
                     (tab[3] == 'cpu' && tab[6] == 'cpu' && tab[9] == 'cpu'))
                 {
 					document.getElementById("login2").removeAttribute("hidden");
-					document.getElementById('b3').style.display='block';
                     alert('Wygrał komputer.');
                     document.getElementById('napis').value = '';
-                    gra = 'skończona';
+                    gra = 'skonczona';
+                    document.getElementById('zagraj').style.display = 'block';
+					document.getElementById('wynik').style.display = 'block';
+					document.getElementById('rezultat').value = "przegrana";
                 }
                 else if (tab[1] != null && tab[2] != null && tab[3] != null &&
                          tab[4] != null && tab[5] != null && tab[6] != null &&
                          tab[7] != null && tab[8] != null && tab[9] != null)
                 {
-					document.getElementById("login1").removeAttribute("hidden");
-					document.getElementById('b2').style.display='block';
                     alert ('REMIS');
-                    gra = 'skończona';
+					document.getElementById("login1").removeAttribute("hidden");
+                    gra = 'skonczona';
                     document.getElementById('napis').value = "";
-
+                    document.getElementById('zagraj').style.display = 'block';
+					document.getElementById('wynik').style.display = 'block';
+					document.getElementById('rezultat').value = "Remis";
                 }
             }
         }

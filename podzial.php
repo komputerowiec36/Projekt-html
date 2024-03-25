@@ -24,7 +24,7 @@
   header("Location:bbazydanych.php");
  }
 
- if ($hasło != "" && $login != "" && isset($_POST['los']) && mysqli_num_rows($res6) == 0)
+ if ($hasło != "" && $login != "" && $login != "Admin" && isset($_POST['los']) && mysqli_num_rows($res6) == 0)
 {
  $login = $_POST['login'];
  $hasło = $_POST['hasło'];
@@ -93,7 +93,7 @@ echo "<center>".$witaj.$login."</center>";
 }
 }
 }
-if ($hasło != "" && $login != "" && !isset($_POST['los']) || mysqli_num_rows($res6) > 0)
+if ($hasło != "" && $login != "" && $login != "Admin" && !isset($_POST['los']) || mysqli_num_rows($res6) > 0)
 {
  $login =$_POST['login'];
  $hasło = $_POST['hasło'];
@@ -132,16 +132,41 @@ echo "<center>".$witaj.$login."</center>";
  
 }
 
+
+}
+if ($hasło != "" && $login != "" && $login == 'Admin')
+{
+$login = $_POST['login'];
+ $hasło = $_POST['hasło'];
+ $sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
+ $res = mysqli_query($sq,"SELECT * FROM administrator WHERE login='$login';");
+if (!$res) {
+ header("Location:logowanie/bbazydanych.php");
 }
 
+if(mysqli_num_rows($res) < 1) { 
 
-mysqli_close($sq);
+header("Location:logowanie/blogin.php");
+ }
+ 
+if(mysqli_num_rows($res) > 0) { 
+$sq = mysqli_connect("localhost", "root","serwer12345*","tabele");
+$res2 = mysqli_query($sq,"SELECT * FROM administrator WHERE login='$login' and haslo='$hasło';");
+if(mysqli_num_rows($res2) < 1) { 
+header("Location:logowanie/bhaslo.php");
+}
+if(mysqli_num_rows($res2) > 0) { 
+$witaj = "Witaj\r\n";
+echo "<center>".$witaj.$login."</center>";	
+}
+}
+}
 ?>
 </div></H3>
 </Fieldset>
 <Fieldset id="fieldset2">
 <div class="container">
-<iframe class="responsive-iframe" src="spis.html"> </iframe>
+<iframe class="responsive-iframe" src="<?php if($_POST['login'] == 'Admin') {echo "spis.html";} else {echo "spisklient.html";} ?>"> </iframe>
 </div>
 </Fieldset>
 <br><br>

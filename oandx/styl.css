@@ -26,6 +26,17 @@ body
     float: left;
 }
 
+#przyciski
+{
+    width: 450px;
+    height: 450px;
+    background-color: inherit;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    margin: auto;
+}
+
 #p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9
 {
     border: 0px;
@@ -35,7 +46,33 @@ body
     height: 150px;
     background-image: url('ramka.png');
     float: left;
-    
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#pp1, #pp2, #pp3, #pp4, #pp5, #pp6, #pp7, #pp8, #pp9, #pp11, #pp22, #pp33, #pp44, #pp55, #pp66, #pp77, #pp88, #pp99
+{
+    display: none;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 150px;
+    height: 150px;
+}
+
+#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9
+{
+    margin: 5px;
+    padding: 0px;
+    width: 140px;
+    height: 140px;
+    float: left;
+    font-size: 300%;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 10px;
 }
 
 #pp1, #pp2, #pp3, #pp4, #pp5, #pp6, #pp7, #pp8, #pp9, #pp11, #pp22, #pp33, #pp44, #pp55, #pp66, #pp77, #pp88, #pp99
@@ -133,21 +170,13 @@ body
     resize: none;
     outline: none;
 }
-#b1{
- display: none;
-}
-#b2{
- display: none;
-}
-#b3{
- display: none;
-}
+
 #napis
 {
     border: 0px;
     width: 235px;
     height: 100px;
-    margin-top: 150px;
+    margin-top: 10px;
     margin-left: 5px;
     margin-right: 10px;
     font-weight: bold;
@@ -169,6 +198,24 @@ body
     background-image: url('tlo2.png');
 }
 
+#butt, #zagraj
+{
+    width: 440px;
+    font-size: 300%;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 10px;
+}
+
+#a
+{
+    
+    font-size: 200%;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 600px;
+}
+
 hr
 {
     margin: 0px;
@@ -177,5 +224,52 @@ hr
 
 h1
 {
-    text-decoration: blink;
+    color: #ff0000;
+    font-size: 50px;
+    margin: 0px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline overline #318ce7;
+}
+
+#tytul
+{
+    position: center;
+    display: block;
+    width: 100%;
+}
+
+#zagraj
+{
+    display: none;
+}
+
+#wynik
+{
+    display: none;
+}
+
+.gradient-text
+{
+    background: linear-gradient(#318ce7, #000000, #318ce7);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
+    position: absolutne;
+}
+
+.cien
+{
+    color: transparent;
+    text-shadow: 1px 1px 2px #555555;
+    display: inline-block;
+    position: relative;
+}
+
+.ikonka
+{
+    height: 50px;
+    width: 50px;
+    vertical-align: top;
 }
