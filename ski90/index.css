@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+#lewy
+{
+  position:absolute;
+  top: 144px;
+  float:left;
+  font-size:35px;
+  width: 35%;
+  right: 1100px;
+}
+#prawy
+{
+  float:right;
+  width: 65%;
+  height: 100%;
+}
+#temat
+{
+  font-size:20px;
+}
+
+a:link {color: blue;}
+a:visited {color: green;}
+a:active {color: red;}
