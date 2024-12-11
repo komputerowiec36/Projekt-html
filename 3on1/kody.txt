@@ -1,0 +1,41 @@
+$res = mysqli_query($con,"SELECT * FROM linki;");
+ if(isset($_GET['l'], $_GET['name'])){
+     
+
+
+ print("super");
+
+ $zmienna1=$_GET['l'];
+
+ $zmienna2=$_GET['name'];
+ 
+ print($zmienna1);
+
+ }
+ 
+ <?php
+ if (array_keys($_GET)!= null)
+{
+	$a = array_keys($_GET);
+	ob_start();
+	switch($a[0])
+	{
+	  case 'a':
+		 print("super");
+
+         $zmienna1=$_GET['l'];
+
+         $zmienna2=$_GET['name'];
+ 
+         print($zmienna1);
+	  break;
+
+	}
+	$content = ob_get_clean();
+	echo $content;
+}
+
+
+ 
+
+?>
